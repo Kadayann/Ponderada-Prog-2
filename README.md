@@ -129,6 +129,9 @@ plt.tight_layout()
 plt.show()
 ```
 
+## Modelo Físico
 
+![Imagem do WhatsApp de 2025-10-22 à(s) 11 58 37_9392f2fb](https://github.com/user-attachments/assets/17458638-34e8-4f05-9deb-f8a24517cf80)
 
+## Gráficos Modelo Físico
 
