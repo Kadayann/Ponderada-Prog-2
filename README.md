@@ -131,7 +131,76 @@ plt.show()
 
 ## Modelo Físico
 
-![Imagem do WhatsApp de 2025-10-22 à(s) 11 58 37_9392f2fb](https://github.com/user-attachments/assets/17458638-34e8-4f05-9deb-f8a24517cf80)
+![Imagem do WhatsApp de 2025-10-22 à(s) 12 15 03_f98bbb85](https://github.com/user-attachments/assets/350f8857-6d1f-45d1-b789-cdc68d7d1a10)
 
 ## Gráficos Modelo Físico
+
+### Houve uma mudança brusca por conta do Resistor ultilizado
+
+<img width="600" height="400" alt="Figure_4" src="https://github.com/user-attachments/assets/5fcd42d4-7d8c-4956-b449-6f6ea2101128" />
+
+<img width="600" height="400" alt="Figure_5" src="https://github.com/user-attachments/assets/8ad63748-e411-42d5-b51f-1a9a87cbb10e" />
+
+<img width="700" height="400" alt="Figure_6" src="https://github.com/user-attachments/assets/337e5968-73bf-4c8d-8be5-dba9c845fdf8" />
+
+## Código dos Gráficos Físicos
+```cpp
+import matplotlib.pyplot as plt
+
+#  Dados do monitor serial 
+dados = """
+0 4.95 0.05
+36497 4.96 0.04
+36898 4.96 0.04
+37300 1.82 3.18
+37700 1.73 3.27
+38102 1.70 3.30
+38503 1.72 3.28
+"""
+
+#  Converter texto em listas 
+tempo, vC, vR = [], [], []
+for linha in dados.strip().split('\n'):
+    t, c, r = linha.split()
+    tempo.append(float(t))
+    vC.append(float(c))
+    vR.append(float(r))
+
+#  Gráfico da carga no capacitor 
+plt.figure(figsize=(6, 4))
+plt.plot(tempo, vC, color='blue', linewidth=2, label='Tensão no C (Vc)')
+plt.title('Carga no Capacitor (C)')
+plt.xlabel('Tempo (ms)')
+plt.ylabel('Tensão (V)')
+plt.grid(True)
+plt.legend()
+plt.tight_layout()
+plt.show()
+
+#  Gráfico da descarga no resistor 
+plt.figure(figsize=(6, 4))
+plt.plot(tempo, vR, color='red', linewidth=2, label='Tensão no R (Vr)')
+plt.title('Descarga no Resistor (R)')
+plt.xlabel('Tempo (ms)')
+plt.ylabel('Tensão (V)')
+plt.grid(True)
+plt.legend()
+plt.tight_layout()
+plt.show()
+
+#  Comparação entre os dois 
+plt.figure(figsize=(7, 4))
+plt.plot(tempo, vC, color='blue', linewidth=2, label='Tensão no C (Vc)')
+plt.plot(tempo, vR, color='red', linewidth=2, label='Tensão no R (Vr)')
+plt.title('Comparação: Carga no C e Descarga no R')
+plt.xlabel('Tempo (ms)')
+plt.ylabel('Tensão (V)')
+plt.grid(True)
+plt.legend()
+plt.tight_layout()
+plt.show()
+```
+
+
+
 
